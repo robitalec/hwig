@@ -19,3 +19,9 @@ test_that("hwig works", {
 
 		expect_equal(length(calc_hwig(multiple)), DT[, uniqueN(yr)])
 })
+
+test_that("get_names works", {
+
+	expect_equal(nrow(get_names(DT, 'yr')),
+							length(multiple))
+})
