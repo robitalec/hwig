@@ -2,4 +2,5 @@
 
 export(calc_hwi)
 export(calc_hwig)
+export(get_names)
 import(data.table)
