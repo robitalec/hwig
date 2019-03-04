@@ -4,7 +4,7 @@
 \alias{calc_hwi}
 \title{Calculate HWI}
 \usage{
-calc_hwi(DT, id, group)
+calc_hwi(DT, id, group, by = NULL)
 }
 \arguments{
 \item{DT}{input group membership data, in individual/group format}
@@ -12,10 +12,16 @@ calc_hwi(DT, id, group)
 \item{id}{column indicating id in DT}
 
 \item{group}{column indicating group in DT}
+
+\item{by}{column(s) to split calculation by. e.g.: year}
 }
 \value{
 data.table of HWI
 }
 \description{
 Calculate HWI
+}
+\examples{
+data(DT)
+hwi <- calc_hwi(DT, 'id', 'group', 'yr')
 }
