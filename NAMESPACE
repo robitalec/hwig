@@ -2,3 +2,4 @@
 
 export(calc_hwi)
 export(calc_hwig)
+import(data.table)
