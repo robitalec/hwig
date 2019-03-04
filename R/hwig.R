@@ -3,13 +3,14 @@
 #' @param DT input group membership data, in individual/group format
 #' @param id column indicating id in DT
 #' @param group column indicating group in DT
+#' @param by column(s) to split calculation by. e.g.: year
 #'
 #' @return data.table of HWI
 #' @export
 #'
 #' @examples
 #' @import data.table
-calc_hwi <- function(DT, id, group) {
+calc_hwi <- function(DT, id, group, by = NULL) {
 	if (missing(DT)) stop('DT is missing')
 	if (missing(group)) stop('group is missing')
 	if (missing(id)) stop('id is missing')
@@ -22,15 +23,28 @@ calc_hwi <- function(DT, id, group) {
 		stop('id column not found in DT')
 	}
 
-	memb.matrix <- spatsoc::get_gbi(DT, group = group, id = id)
+	calc <- function(DT) {
+		memb.matrix <- spatsoc::get_gbi(DT, group = group, id = id)
 
-	hwi <-
-		data.table::data.table(asnipe::get_network(
-			memb.matrix,
-			data_format = 'GBI',
-			association_index = 'HWI'
-		))
-	return(hwi)
+		hwi <-
+			data.table::data.table(asnipe::get_network(
+				memb.matrix,
+				data_format = 'GBI',
+				association_index = 'HWI'
+			))
+	}
+
+
+	if (is.null(by)) {
+		return(calc(DT))
+	} else if (all(by %in% colnames(DT))) {
+		combs <- unique(DT[, .SD, .SDcols = by])
+		return(lapply(seq(1, nrow(combs)), function(i) {
+			calc(DT[combs[i], on = by])
+		}))
+	} else {
+		stop('by column(s) not found in DT')
+	}
 }
 
 #' Calculate HWIG
