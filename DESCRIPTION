@@ -16,3 +16,5 @@ Imports:
     asnipe,
     spatsoc,
     data.table
+Suggests: 
+    testthat
