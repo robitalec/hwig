@@ -8,6 +8,7 @@
 #' @export
 #'
 #' @examples
+#' @import data.table
 calc_hwi <- function(DT, id, group) {
 	if (missing(DT)) stop('DT is missing')
 	if (missing(group)) stop('group is missing')
@@ -40,7 +41,7 @@ calc_hwi <- function(DT, id, group) {
 #'
 #' @examples
 calc_hwig <- function(hwi) {
-	hwi.sums <- melt(
+	hwi.sums <- data.table::melt(
 		hwi[, lapply(.SD, sum), .SDcols = colnames(hwi)],
 		measure.vars = colnames(hwi),
 		variable.name = 'ID',
@@ -50,14 +51,13 @@ calc_hwig <- function(hwi) {
 	hwi.sums[, hwiTotal := sum(HWI) / 2]
 	hwi.grand.total <- hwi.sums[1, hwiTotal]
 
-	hwi.mult.inds <- data.table(hwi.sums[, outer(HWI, HWI, '*')])
+	hwi.mult.inds <- data.table::data.table(hwi.sums[, outer(HWI, HWI, '*')])
 
 	hwi.div <-
 		hwi.mult.inds[, hwi.grand.total / .SD, .SDcols = colnames(hwi.mult.inds)]
 
-
 	for (j in 1:ncol(hwi.div))
-		set(hwi.div, which(is.infinite(hwi.div[[j]])), j, 0)
+		data.atble::set(hwi.div, which(is.infinite(hwi.div[[j]])), j, 0)
 
 	hwig <- hwi.div * hwi
 	colnames(hwig) <- hwi.sums[, as.character(ID)]
