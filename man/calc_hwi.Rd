@@ -4,20 +4,17 @@
 \alias{calc_hwi}
 \title{Calculate HWI}
 \usage{
-calc_hwi(ind.groups, input.data.format = "individuals",
-  network.data.format = "GBI", assc.ind = "HWI")
+calc_hwi(DT, id, group)
 }
 \arguments{
-\item{ind.groups}{input group membership data, in ID/GROUP format}
+\item{DT}{input group membership data, in individual/group format}
 
-\item{input.data.format}{groups or individuals, as string (for get_group_by..)}
+\item{id}{column indicating id in DT}
 
-\item{network.data.format}{GBI or SP, group by individual or sampling period}
-
-\item{assc.ind}{SRI or HWI, for association_index}
+\item{group}{column indicating group in DT}
 }
 \value{
-data.table of HWI for each individual pair combination
+data.table of HWI
 }
 \description{
 Calculate HWI
