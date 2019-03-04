@@ -9,6 +9,8 @@
 #' @export
 #'
 #' @examples
+#' data(DT)
+#' hwi <- calc_hwi(DT, 'id', 'group', 'yr')
 #' @import data.table
 calc_hwi <- function(DT, id, group, by = NULL) {
 	if (missing(DT)) stop('DT is missing')
@@ -34,7 +36,6 @@ calc_hwi <- function(DT, id, group, by = NULL) {
 			))
 	}
 
-
 	if (is.null(by)) {
 		return(calc(DT))
 	} else if (all(by %in% colnames(DT))) {
@@ -48,32 +49,74 @@ calc_hwi <- function(DT, id, group, by = NULL) {
 }
 
 #' Calculate HWIG
-#' @param hwi output of `calc_hwi``
 #'
-#' @return HWIG matrix
+#' Using the formula in Godde et al. (2013).
+#'
+#' It is expected that the input `hwi` is the output from `calc_hwi`. If `by` was provided in that function, `hwi` will be a list of data.tables. Alternatively if `by` wasn't provided, `hwi` will be a single data.table.
+#'
+#'
+#' @param hwi output of `calc_hwi`. Either a data.table or a list of data.tables. See Details.
+#'
+#' @return HWIG data.table or list of data.tables.
+#' @export
+#'
+#' @references Sophie Godde, Lionel Humbert, Steeve D. Côté, Denis Réale, Hal Whitehead. Correcting for the impact of gregariousness in social network analyses. Animal Behaviour. Volume 85, Issue 3. 2013.
+#'
+#'
+#' @examples
+#' data(DT)
+#' hwi <- calc_hwi(DT, 'id', 'group', 'yr')
+#' hwig <- calc_hwig(hwi)
+calc_hwig <- function(hwi) {
+
+	if (missing(hwi)) {
+		stop('hwi missing. did you run calc_hwi?')
+	}
+
+	calc <- function(hwi) {
+		sums <- data.table::melt(
+			hwi[, lapply(.SD, sum), .SDcols = colnames(hwi)],
+			measure.vars = colnames(hwi),
+			variable.name = 'ID',
+			value.name = 'HWI'
+		)
+
+		sums[, total := sum(HWI) / 2]
+		grand <- sums[1, total]
+
+		mult <- data.table::data.table(sums[, outer(HWI, HWI, '*')])
+
+		div <-
+			mult[, grand / .SD, .SDcols = colnames(mult)]
+
+		for (j in 1:ncol(div))
+			data.table::set(div, which(is.infinite(div[[j]])), j, 0)
+
+		hwig <- div * hwi
+		colnames(hwig) <- sums[, as.character(ID)]
+		return(hwig)
+	}
+
+	if (inherits(hwi, 'data.table')) {
+		calc(hwi)
+	} else if (inherits(hwi, 'list')) {
+		lapply(hwi, calc)
+	} else {
+		stop('hwi must be either a data.table or list of data.tables from calc_hwi')
+	}
+}
+
+
+## Helper function, to return names of each matrix
+
+#' Get HWI/HWIG names
+#'
+#' @inheritParams calc_hwi
+#'
+#' @return names corresponding to values of by for each of the returned list of matrices in `calc_hwi` and `calc_hwig`.
 #' @export
 #'
 #' @examples
-calc_hwig <- function(hwi) {
-	hwi.sums <- data.table::melt(
-		hwi[, lapply(.SD, sum), .SDcols = colnames(hwi)],
-		measure.vars = colnames(hwi),
-		variable.name = 'ID',
-		value.name = 'HWI'
-	)
-
-	hwi.sums[, hwiTotal := sum(HWI) / 2]
-	hwi.grand.total <- hwi.sums[1, hwiTotal]
-
-	hwi.mult.inds <- data.table::data.table(hwi.sums[, outer(HWI, HWI, '*')])
-
-	hwi.div <-
-		hwi.mult.inds[, hwi.grand.total / .SD, .SDcols = colnames(hwi.mult.inds)]
-
-	for (j in 1:ncol(hwi.div))
-		data.atble::set(hwi.div, which(is.infinite(hwi.div[[j]])), j, 0)
-
-	hwig <- hwi.div * hwi
-	colnames(hwig) <- hwi.sums[, as.character(ID)]
-	return(hwig)
+get_names <- function(DT, by) {
+	return(unique(DT[, .SD, .SDcols = by]))
 }
