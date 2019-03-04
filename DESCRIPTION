@@ -1,0 +1,14 @@
+Package: hwig
+Title: Calculates Half-Weight Index Gregariousness (HWIG).
+Version: 0.0.1.9000
+Authors@R: 
+    person(given = "Alec L.",
+           family = "Robitaille",
+           role = c("aut", "cre"),
+           email = "robit.alec@gmail.com",
+           comment = c(ORCID = "0000-0002-4706-1762"))
+Description: Calculates HWIG.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
