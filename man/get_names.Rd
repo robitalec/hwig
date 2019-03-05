@@ -15,5 +15,12 @@ get_names(DT, by)
 names corresponding to values of by for each of the returned list of matrices in `calc_hwi` and `calc_hwig`.
 }
 \description{
-Get HWI/HWIG names
+Helper function, to return names of each matrix
+}
+\examples{
+data(DT)
+hwi <- calc_hwi(DT, 'id', 'group', 'yr')
+hwig <- calc_hwig(hwi)
+nms <- get_names(DT, 'yr')
+names(hwig) <- nms
 }
