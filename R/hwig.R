@@ -106,10 +106,9 @@ calc_hwig <- function(hwi) {
 	}
 }
 
-
-## Helper function, to return names of each matrix
-
 #' Get HWI/HWIG names
+#'
+#' Helper function, to return names of each matrix
 #'
 #' @inheritParams calc_hwi
 #'
@@ -117,6 +116,12 @@ calc_hwig <- function(hwi) {
 #' @export
 #'
 #' @examples
+#' data(DT)
+#' hwi <- calc_hwi(DT, 'id', 'group', 'yr')
+#' hwig <- calc_hwig(hwi)
+
+#' nms <- get_names(DT, 'yr')
+#' names(hwig) <- nms
 get_names <- function(DT, by) {
-	return(unique(DT[, .SD, .SDcols = by]))
+	return(unlist(unique(DT[, .SD, .SDcols = by]), use.names = FALSE))
 }
