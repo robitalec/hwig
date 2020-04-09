@@ -1,5 +1,5 @@
 Package: hwig
-Title: Calculates Half-Weight Index Gregariousness (HWIG).
+Title: Calculates Half-Weight Index Gregariousness (HWIG)
 Version: 0.0.1.9000
 Authors@R: 
     person(given = "Alec L.",
