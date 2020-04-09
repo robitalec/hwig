@@ -95,7 +95,7 @@ calc_hwig <- function(hwi) {
 		div <-
 			mult[, grand / .SD, .SDcols = colnames(mult)]
 
-		for (j in 1:ncol(div))
+		for (j in seq_len(ncol(div)))
 			data.table::set(div, which(is.infinite(div[[j]])), j, 0)
 
 		hwig <- div * hwi
