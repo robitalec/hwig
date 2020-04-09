@@ -118,7 +118,8 @@ calc_hwig <- function(hwi) {
 #'
 #' @inheritParams calc_hwi
 #'
-#' @return names corresponding to values of by for each of the returned list of matrices in `calc_hwi` and `calc_hwig`.
+#' @return names corresponding to values of by for each of the returned list of
+#'   matrices in `calc_hwi` and `calc_hwig`.
 #' @export
 #'
 #' @examples
