@@ -11,6 +11,7 @@
 #' @examples
 #' data(DT)
 #' hwi <- calc_hwi(DT, 'id', 'group', 'yr')
+#'
 #' @import data.table
 calc_hwi <- function(DT, id, group, by = NULL) {
 	if (missing(DT)) stop('DT is missing')
@@ -52,15 +53,20 @@ calc_hwi <- function(DT, id, group, by = NULL) {
 #'
 #' Using the formula in Godde et al. (2013).
 #'
-#' It is expected that the input `hwi` is the output from `calc_hwi`. If `by` was provided in that function, `hwi` will be a list of data.tables. Alternatively if `by` wasn't provided, `hwi` will be a single data.table.
+#' It is expected that the input `hwi` is the output from `calc_hwi`. If `by`
+#' was provided in that function, `hwi` will be a list of data.tables.
+#' Alternatively if `by` wasn't provided, `hwi` will be a single data.table.
 #'
 #'
-#' @param hwi output of `calc_hwi`. Either a data.table or a list of data.tables. See Details.
+#' @param hwi output of `calc_hwi`. Either a data.table or a list of
+#'   data.tables. See Details.
 #'
 #' @return HWIG data.table or list of data.tables.
 #' @export
 #'
-#' @references Sophie Godde, Lionel Humbert, Steeve D. Côté, Denis Réale, Hal Whitehead. Correcting for the impact of gregariousness in social network analyses. Animal Behaviour. Volume 85, Issue 3. 2013.
+#' @references Sophie Godde, Lionel Humbert, Steeve D. Côté, Denis Réale, Hal
+#'   Whitehead. Correcting for the impact of gregariousness in social network
+#'   analyses. Animal Behaviour. Volume 85, Issue 3. 2013.
 #'
 #'
 #' @examples
