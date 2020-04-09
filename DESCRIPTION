@@ -18,3 +18,6 @@ Imports:
     data.table
 Suggests: 
     testthat
+BugReports: https://github.com/robitalec/hwig/issues
+URL: https://gitlab.com/robit.a/hwig, https://github.com/robitalec/hwig
+
