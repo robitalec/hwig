@@ -22,6 +22,6 @@ test_that("hwig works", {
 
 test_that("get_names works", {
 
-	expect_equal(nrow(get_names(DT, 'yr')),
+	expect_equal(length(get_names(DT, 'yr')),
 							length(multiple))
 })
