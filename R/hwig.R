@@ -15,8 +15,8 @@
 #' @import data.table
 calc_hwi <- function(DT, id, group, by = NULL) {
 	if (missing(DT)) stop('DT is missing')
-	if (missing(group)) stop('group is missing')
 	if (missing(id)) stop('id is missing')
+	if (missing(group)) stop('group is missing')
 
 	if (!(group %in% colnames(DT))) {
 		stop('group column not found in DT')
