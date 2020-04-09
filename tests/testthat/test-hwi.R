@@ -27,6 +27,7 @@ test_that('get_names works', {
 })
 
 test_that('checks work', {
+	# Missing input
 	expect_error(calc_hwi(),
 							 'DT is missing')
 
@@ -36,6 +37,10 @@ test_that('checks work', {
 	expect_error(calc_hwi(DT, 'id'),
 							 'group is missing')
 
+	expect_error(calc_hwig(),
+							 'hwi missing. did you run calc_hwi?')
+
+	# Missing/wrong column names
 	expect_error(calc_hwi(DT, 'potato', 'group'),
 							 'id column not found in DT')
 
@@ -43,7 +48,16 @@ test_that('checks work', {
 							 'group column not found in DT')
 
 	expect_error(calc_hwi(DT, 'id', 'group', 'potato'),
-							 'by column(s) not found in DT')
+							 'by column(s) not found in DT', fixed = TRUE)
+
+
+	# Wrong types
+	expect_error(calc_hwig(42),
+							 'hwi must be either a data.table or list of data.tables from calc_hwi')
+
+	expect_error(calc_hwig('42'),
+							 'hwi must be either a data.table or list of data.tables from calc_hwi')
+
 
 
 })
