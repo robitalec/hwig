@@ -26,3 +26,19 @@ test_that('get_names works', {
 							length(multiple))
 })
 
+test_that('checks work', {
+	expect_error(calc_hwi(),
+							 'DT is missing')
+
+	expect_error(calc_hwi(DT),
+							 'id is missing')
+
+	expect_error(calc_hwi(DT, 'id'),
+							 'group is missing')
+
+	expect_error(calc_hwi(DT, 'potato', 'group'),
+							 'id column not found in DT')
+
+	expect_error(calc_hwi(DT, 'id', 'potato'),
+							 'group column not found in DT')
+})
