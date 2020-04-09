@@ -74,6 +74,8 @@ calc_hwi <- function(DT, id, group, by = NULL) {
 #' hwi <- calc_hwi(DT, 'id', 'group', 'yr')
 #' hwig <- calc_hwig(hwi)
 calc_hwig <- function(hwi) {
+	# NSE
+	HWI <- ID <- NULL
 
 	if (missing(hwi)) {
 		stop('hwi missing. did you run calc_hwi?')
