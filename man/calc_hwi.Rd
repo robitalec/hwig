@@ -24,4 +24,5 @@ Calculate HWI
 \examples{
 data(DT)
 hwi <- calc_hwi(DT, 'id', 'group', 'yr')
+
 }
