@@ -19,7 +19,7 @@ calc_hwi <- function(DT, id, group, by = NULL) {
 	if (missing(id)) stop('id is missing')
 
 	if (!(group %in% colnames(DT))) {
-		stop('id column not found in DT')
+		stop('group column not found in DT')
 	}
 
 	if (!(id %in% colnames(DT))) {
