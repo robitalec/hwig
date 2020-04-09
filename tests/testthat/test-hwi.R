@@ -41,4 +41,9 @@ test_that('checks work', {
 
 	expect_error(calc_hwi(DT, 'id', 'potato'),
 							 'group column not found in DT')
+
+	expect_error(calc_hwi(DT, 'id', 'group', 'potato'),
+							 'by column(s) not found in DT')
+
+
 })
