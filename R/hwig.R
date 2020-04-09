@@ -40,7 +40,7 @@ calc_hwi <- function(DT, id, group, by = NULL) {
 		return(calc(DT))
 	} else if (all(by %in% colnames(DT))) {
 		combs <- unique(DT[, .SD, .SDcols = by])
-		return(lapply(seq(1, nrow(combs)), function(i) {
+		return(lapply(seq_len(nrow(combs)), function(i) {
 			calc(DT[combs[i], on = by])
 		}))
 	} else {
