@@ -1,5 +1,7 @@
 ## Test environments
 * Linux R 3.6.2
+* R-Hub
+
 
 ## R CMD check results
 
