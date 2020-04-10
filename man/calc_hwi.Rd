@@ -16,10 +16,13 @@ calc_hwi(DT, id, group, by = NULL)
 \item{by}{column(s) to split calculation by. e.g.: year}
 }
 \value{
-data.table of HWI
+HWI data.table or list of data.tables.
 }
 \description{
-Calculate HWI
+Calculates the Half-Weight Association Index
+}
+\details{
+Expects an input `DT` with id and group column, e.g. as returned by \link[spatsoc]{group_pts}.
 }
 \examples{
 # Load data.table
