@@ -8,11 +8,17 @@
 #' @return data.table of HWI
 #' @export
 #'
-#' @examples
-#' data(DT)
-#' hwi <- calc_hwi(DT, 'id', 'group', 'yr')
-#'
 #' @import data.table
+#'
+#' @examples
+#' # Load data.table
+#' library(data.table)
+#'
+#' # Load example data
+#' DT <- fread(system.file("extdata", "DT.csv", package = "hwig"))
+#'
+#' # Calculate HWI
+#' hwi <- calc_hwi(DT, 'id', 'group', 'yr')
 calc_hwi <- function(DT, id, group, by = NULL) {
 	if (missing(DT)) stop('DT is missing')
 	if (missing(id)) stop('id is missing')
@@ -70,8 +76,16 @@ calc_hwi <- function(DT, id, group, by = NULL) {
 #'
 #'
 #' @examples
-#' data(DT)
+#' # Load data.table
+#' library(data.table)
+#'
+#' # Load example data
+#' DT <- fread(system.file("extdata", "DT.csv", package = "hwig"))
+#'
+#' # Calculate HWI
 #' hwi <- calc_hwi(DT, 'id', 'group', 'yr')
+#'
+#' # Calculate HWIG
 #' hwig <- calc_hwig(hwi)
 calc_hwig <- function(hwi) {
 	# NSE
@@ -125,10 +139,19 @@ calc_hwig <- function(hwi) {
 #' @export
 #'
 #' @examples
-#' data(DT)
+#' # Load data.table
+#' library(data.table)
+#'
+#' # Load example data
+#' DT <- fread(system.file("extdata", "DT.csv", package = "hwig"))
+#'
+#' # Calculate HWI
 #' hwi <- calc_hwi(DT, 'id', 'group', 'yr')
+#'
+#' # Calculate HWIG
 #' hwig <- calc_hwig(hwi)
-
+#'
+#' # Set names
 #' nms <- get_names(DT, 'yr')
 #' names(hwig) <- nms
 get_names <- function(DT, by) {
