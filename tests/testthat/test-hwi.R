@@ -1,6 +1,11 @@
 context('test-hwi')
 
-data(DT)
+# Load data.table
+library(data.table)
+
+# Read example data
+DT <- fread(system.file("extdata", "DT.csv", package = "hwig"))
+
 
 single <- calc_hwi(DT, 'id', 'group', by = NULL)
 multiple <- calc_hwi(DT, 'id', 'group', by = 'yr')
