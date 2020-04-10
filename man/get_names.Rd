@@ -12,7 +12,8 @@ get_names(DT, by)
 \item{by}{column(s) to split calculation by. e.g.: year}
 }
 \value{
-names corresponding to values of by for each of the returned list of matrices in `calc_hwi` and `calc_hwig`.
+names corresponding to values of by for each of the returned list of
+  matrices in `calc_hwi` and `calc_hwig`.
 }
 \description{
 Helper function, to return names of each matrix
