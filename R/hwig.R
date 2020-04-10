@@ -1,11 +1,15 @@
 #' Calculate HWI
 #'
+#' Calculates the Half-Weight Association Index
+#'
+#' Expects an input `DT` with id and group column, e.g. as returned by \link[spatsoc]{group_pts}.
+#'
 #' @param DT input group membership data, in individual/group format
 #' @param id column indicating id in DT
 #' @param group column indicating group in DT
 #' @param by column(s) to split calculation by. e.g.: year
 #'
-#' @return data.table of HWI
+#' @return HWI data.table or list of data.tables.
 #' @export
 #'
 #' @import data.table
