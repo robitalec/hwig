@@ -31,7 +31,7 @@ devtools::install_gitlab('robit.a/hwig')
 
 ## Usage
 
-```{r}
+```{r, eval = TRUE}
 # Load packages
 library(hwig)
 library(data.table)
@@ -44,6 +44,10 @@ hwi <- calc_hwi(DT, 'id', 'group', 'yr')
 
 # Calculate HWIG
 hwig <- calc_hwig(hwi)
+
+# Set names
+nms <- get_names(DT, 'yr')
+names(hwig) <- nms
 
 # Print first year's result
 hwig[1]
