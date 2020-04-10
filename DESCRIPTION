@@ -7,7 +7,11 @@ Authors@R:
            role = c("aut", "cre"),
            email = "robit.alec@gmail.com",
            comment = c(ORCID = "0000-0002-4706-1762"))
-Description: Calculates HWIG according to Godde et al. (2013) <doi:10.1016/j.anbehav.2012.12.010>.
+Description: Calculates the half-weight index gregariousness (HWIG) association 
+             index according to Godde et al. (2013)
+             <doi:10.1016/j.anbehav.2012.12.010>. HWIG extends the half-weight 
+             association index (HWI), correcting for level of gregariousness
+             in individuals.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
