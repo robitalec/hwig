@@ -53,7 +53,7 @@ hwig[1]
 
 ## References
 
-\[\[1\]\] [Sophie Godde, Lionel Humbert, Steeve D. Côté, Denis Réale,
-Hal Whitehead. Correcting for the impact of gregariousness in social
-network analyses. *Animal Behaviour*. Volume 85, Issue 3.
+\[1\] [Sophie Godde, Lionel Humbert, Steeve D. Côté, Denis Réale, Hal
+Whitehead. Correcting for the impact of gregariousness in social network
+analyses. *Animal Behaviour*. Volume 85, Issue 3.
 2013.](https://www.sciencedirect.com/science/article/pii/S0003347212005593)
