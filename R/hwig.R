@@ -89,7 +89,7 @@ calc_hwi <- function(DT, id, group, by = NULL) {
 #' hwig <- calc_hwig(hwi)
 calc_hwig <- function(hwi) {
 	# NSE
-	HWI <- ID <- NULL
+	HWI <- ID <- total <- NULL
 
 	if (missing(hwi)) {
 		stop('hwi missing. did you run calc_hwi?')
