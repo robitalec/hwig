@@ -1,3 +1,8 @@
+## v 0.0.1
+* expand description field in DESCRIPTION
+* expand man for calc_hwi
+
+
 ## Test environments
 * Linux R 3.6.2
 * R-Hub
