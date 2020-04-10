@@ -22,8 +22,16 @@ was provided in that function, `hwi` will be a list of data.tables.
 Alternatively if `by` wasn't provided, `hwi` will be a single data.table.
 }
 \examples{
-data(DT)
+# Load data.table
+library(data.table)
+
+# Load example data
+DT <- fread(system.file("extdata", "DT.csv", package = "hwig"))
+
+# Calculate HWI
 hwi <- calc_hwi(DT, 'id', 'group', 'yr')
+
+# Calculate HWIG
 hwig <- calc_hwig(hwi)
 }
 \references{

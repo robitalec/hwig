@@ -19,9 +19,19 @@ names corresponding to values of by for each of the returned list of
 Helper function, to return names of each matrix
 }
 \examples{
-data(DT)
+# Load data.table
+library(data.table)
+
+# Load example data
+DT <- fread(system.file("extdata", "DT.csv", package = "hwig"))
+
+# Calculate HWI
 hwi <- calc_hwi(DT, 'id', 'group', 'yr')
+
+# Calculate HWIG
 hwig <- calc_hwig(hwi)
+
+# Set names
 nms <- get_names(DT, 'yr')
 names(hwig) <- nms
 }

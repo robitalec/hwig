@@ -22,7 +22,12 @@ data.table of HWI
 Calculate HWI
 }
 \examples{
-data(DT)
-hwi <- calc_hwi(DT, 'id', 'group', 'yr')
+# Load data.table
+library(data.table)
 
+# Load example data
+DT <- fread(system.file("extdata", "DT.csv", package = "hwig"))
+
+# Calculate HWI
+hwi <- calc_hwi(DT, 'id', 'group', 'yr')
 }
