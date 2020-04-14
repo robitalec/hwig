@@ -34,3 +34,6 @@ DT <- fread(system.file("extdata", "DT.csv", package = "hwig"))
 # Calculate HWI
 hwi <- calc_hwi(DT, 'id', 'group', 'yr')
 }
+\seealso{
+\link[hwig]{calc_hwig}
+}

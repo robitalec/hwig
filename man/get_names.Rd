@@ -13,7 +13,7 @@ get_names(DT, by)
 }
 \value{
 names corresponding to values of by for each of the returned list of
-  matrices in `calc_hwi` and `calc_hwig`.
+  matrices in \link[hwig]{calc_hwi} and \link[hwig]{calc_hwig}.
 }
 \description{
 Helper function, to return names of each matrix
@@ -34,4 +34,7 @@ hwig <- calc_hwig(hwi)
 # Set names
 nms <- get_names(DT, 'yr')
 names(hwig) <- nms
+}
+\seealso{
+\link[hwig]{calc_hwi} \link[hwig]{calc_hwig}
 }

@@ -13,6 +13,7 @@
 #' @export
 #'
 #' @import data.table
+#' @seealso \link[hwig]{calc_hwig}
 #'
 #' @examples
 #' # Load data.table
@@ -61,17 +62,18 @@ calc_hwi <- function(DT, id, group, by = NULL) {
 
 #' Calculate HWIG
 #'
-#' Using the formula in Godde et al. (2013).
+#' Calculates the Half-Weight Association Index according to the method described in Godde et al. (2013).
 #'
 #' It is expected that the input `hwi` is the output from `calc_hwi`. If `by`
 #' was provided in that function, `hwi` will be a list of data.tables.
 #' Alternatively if `by` wasn't provided, `hwi` will be a single data.table.
 #'
 #'
-#' @param hwi output of `calc_hwi`. Either a data.table or a list of
+#' @param hwi output of \link[hwig]{calc_hwi}. Either a data.table or a list of
 #'   data.tables. See Details.
 #'
 #' @return HWIG data.table or list of data.tables.
+#' @seealso \link[hwig]{calc_hwi} \link[hwig]{get_names}
 #' @export
 #'
 #' @references Sophie Godde, Lionel Humbert, Steeve D. Côté, Denis Réale, Hal
@@ -139,8 +141,9 @@ calc_hwig <- function(hwi) {
 #' @inheritParams calc_hwi
 #'
 #' @return names corresponding to values of by for each of the returned list of
-#'   matrices in `calc_hwi` and `calc_hwig`.
+#'   matrices in \link[hwig]{calc_hwi} and \link[hwig]{calc_hwig}.
 #' @export
+#' @seealso \link[hwig]{calc_hwi} \link[hwig]{calc_hwig}
 #'
 #' @examples
 #' # Load data.table

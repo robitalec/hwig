@@ -7,14 +7,14 @@
 calc_hwig(hwi)
 }
 \arguments{
-\item{hwi}{output of `calc_hwi`. Either a data.table or a list of
+\item{hwi}{output of \link[hwig]{calc_hwi}. Either a data.table or a list of
 data.tables. See Details.}
 }
 \value{
 HWIG data.table or list of data.tables.
 }
 \description{
-Using the formula in Godde et al. (2013).
+Calculates the Half-Weight Association Index according to the method described in Godde et al. (2013).
 }
 \details{
 It is expected that the input `hwi` is the output from `calc_hwi`. If `by`
@@ -38,4 +38,7 @@ hwig <- calc_hwig(hwi)
 Sophie Godde, Lionel Humbert, Steeve D. Côté, Denis Réale, Hal
   Whitehead. Correcting for the impact of gregariousness in social network
   analyses. Animal Behaviour. Volume 85, Issue 3. 2013.
+}
+\seealso{
+\link[hwig]{calc_hwi} \link[hwig]{get_names}
 }
