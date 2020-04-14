@@ -1,6 +1,8 @@
 ## v 0.0.1
+* fixed title/description repetition in DESCRIPTION
 * expand description field in DESCRIPTION
 * expand man for calc_hwi
+* added see also links in man
 
 
 ## Test environments
