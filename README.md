@@ -10,7 +10,7 @@ Godde et al. (2013) [\[1\]](#references).
 devtools::install_gitlab('robit.a/hwig')
 
 # CRAN
-# install.packages('hwig')
+install.packages('hwig')
 ```
 
 ## Usage

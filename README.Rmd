@@ -25,7 +25,7 @@ Calculates the half-weight index gregariousness (HWIG) as described in Godde et 
 devtools::install_gitlab('robit.a/hwig')
 
 # CRAN
-# install.packages('hwig')
+install.packages('hwig')
 ```
 
 ## Usage
