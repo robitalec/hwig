@@ -3,9 +3,11 @@
 \name{DT}
 \alias{DT}
 \title{Example data for input to `hwig`}
-\format{A data.table with 14297 rows and 3 variables: \describe{
+\format{
+A data.table with 14297 rows and 3 variables: \describe{
   \item{ID}{individual identifier}
-  \item{year}{integer representing the year}}}
+  \item{year}{integer representing the year}}
+}
 \source{
 # Load packages
 library(spatsoc)

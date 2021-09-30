@@ -1,6 +1,6 @@
 Package: hwig
 Title: Half-Weight Index Gregariousness
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Alec L.",
            family = "Robitaille",
@@ -16,7 +16,7 @@ Description: The half-weight index gregariousness (HWIG) is an association
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.2
 Depends: R (>= 2.10)
 Imports: 
     asnipe,
@@ -26,4 +26,3 @@ Suggests:
     testthat
 BugReports: https://github.com/robitalec/hwig/issues
 URL: https://gitlab.com/robit.a/hwig, https://github.com/robitalec/hwig
-
